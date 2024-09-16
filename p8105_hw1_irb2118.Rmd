@@ -43,4 +43,28 @@ ggplot(penguins, aes(x = flipper_length_mm, y = bill_length_mm,
 ggsave("species_scatter.png")
 ```
 
+# Problem 2
+Here is a data frame with some special variables, meant to demonstrate how R treats different variable types in practice
+```{r}
+df_demo <- tibble(
+  norm_samp = rnorm(10),
+  g0 = if_else(norm_samp > 0, TRUE, FALSE),
+  char_vec = c("A","B","C","D","E","F","G","H","I","J is the tenth letter"),
+  factor_vec = factor(c("red","green","blue","red","red","blue","red","green","blue","blue"))
+)
+```
+
+Attempting to take the mean of each variable, we get missing (NA) values for the character vector and factor vector, since  `mean()` only works for numeric, integer, and logical types.
+```{r}
+mean(df_demo$norm_samp)
+mean(df_demo$g0)
+mean(df_demo$char_vec)
+mean(df_demo$factor_vec)
+
+# alternatively could take the mean across all variables like this:
+summarize(df_demo, across(everything(), mean))
+```
+
+
+
 
