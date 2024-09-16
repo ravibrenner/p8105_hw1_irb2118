@@ -1,0 +1,34 @@
+---
+title: "p8105_hw1_irb2118"
+output: github_document
+date: "2024-09-16"
+author: Ravi Brenner
+---
+
+# Introduction
+
+This Rmarkdown document is for P8105 - Data Science 1, homework 1.
+
+# Methods
+
+We will be using Rmarkdown (within Rstudio), git, github as well as some packages from the `tidyverse`.
+
+```{r, message=FALSE}
+library(tidyverse)
+```
+
+The data comes from penguins table in the `palmerpenguins` package:
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+# Results
+
+Here is some basic information about the dataset:
+
+The dataset contains information on various species of penguins from different islands, with measurements taken of key variables across several years. There are `r nrow(penguins)` rows and `r ncol(penguins)` columns, with the following variable names:
+`r names(penguins)`. The species included are `r unique(penguins$species)` from the islands `r unique(penguins$island)`, and the years range from `r min(penguins$year)` to `r max(penguins$year)`.
+
+The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
+
