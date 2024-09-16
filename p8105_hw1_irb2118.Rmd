@@ -60,9 +60,6 @@ mean(df_demo$norm_samp)
 mean(df_demo$g0)
 mean(df_demo$char_vec)
 mean(df_demo$factor_vec)
-
-# alternatively could take the mean across all variables like this:
-summarize(df_demo, across(everything(), mean))
 ```
 
 
