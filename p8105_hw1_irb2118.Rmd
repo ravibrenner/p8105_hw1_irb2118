@@ -34,7 +34,13 @@ The dataset contains information on various species of penguins from different i
 The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
 
 ## Plot
-Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x); color points using the species variable (adding color = ... inside of aes in your ggplot code should help).
+Here is a scatter plot of flipper_length_mm vs. bill_length_mm:
+```{r, message = FALSE, warning = FALSE}
+ggplot(penguins, aes(x = flipper_length_mm, y = bill_length_mm,
+                     color = species)) + 
+  geom_point()
 
-Export your first scatterplot to your project directory using ggsave.
+ggsave("species_scatter.png")
+```
+
 
