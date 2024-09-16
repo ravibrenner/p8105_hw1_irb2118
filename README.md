@@ -1,4 +1,3 @@
-# P8105 - Data Science 1
-Homework 1 repository
+# P8105 - HW1
 
 Author: Ravi Brenner (irb2118)
