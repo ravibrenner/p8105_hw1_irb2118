@@ -36,8 +36,8 @@ The mean flipper length in mm is `r mean(penguins$flipper_length_mm, na.rm = TRU
 ## Plot
 Here is a scatter plot of flipper_length_mm vs. bill_length_mm:
 ```{r, message = FALSE, warning = FALSE}
-ggplot(penguins, aes(x = flipper_length_mm, y = bill_length_mm,
-                     color = species)) + 
+ggplot(penguins,
+       aes(x = flipper_length_mm, y = bill_length_mm, color = species)) +
   geom_point()
 
 ggsave("species_scatter.png")
@@ -56,17 +56,17 @@ df_demo <- tibble(
 
 Attempting to take the mean of each variable, we get missing (NA) values for the character vector and factor vector, since  `mean()` only works for numeric, integer, and logical types.
 ```{r}
-mean(df_demo$norm_samp)
-mean(df_demo$g0)
-mean(df_demo$char_vec)
-mean(df_demo$factor_vec)
+mean(pull(df_demo, norm_samp))
+mean(pull(df_demo, g0))
+mean(pull(df_demo, char_vec))
+mean(pull(df_demo, factor_vec))
 ```
 
 Attempting to convert the logical, character, and factor variables to numeric. This  works for the logical value (1 for `TRUE` and 0 for `FALSE`) and for the factor variable (R converted the 3 factors to numeric values 1, 2, and 3). There isn't anything clear to do with the character vector, so R returns a vector of NAs. When we tried to take the mean, R implicitly converted the logical vector to numeric and returned that mean. For the character vector, it returned NA (since each value was NA when converted to numeric). For the factor vector, the `mean()` function also returned NA, since the numeric values returned by `as.numeric()` are really just ordinal labels for the 3 factors and they don't have any intrinsic value, so it doesn't make sense to return a mean for those values.
 ```{r, eval=FALSE}
-as.numeric(df_demo$g0)
-as.numeric(df_demo$char_vec)
-as.numeric(df_demo$factor_vec)
+as.numeric(pull(df_demo, g0))
+as.numeric(pull(df_demo, char_vec))
+as.numeric(pull(df_demo, factor_vec))
 ```
 
 # Conclusion
