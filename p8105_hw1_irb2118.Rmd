@@ -1,7 +1,7 @@
 ---
 title: "p8105_hw1_irb2118"
 output: github_document
-date: "2024-09-16"
+date: "Due: 2024-09-21"
 author: Ravi Brenner
 ---
 
@@ -31,7 +31,7 @@ Here is some basic information about the dataset:
 The dataset contains information on various species of penguins from different islands, with measurements taken of key variables across several years. There are `r nrow(penguins)` rows and `r ncol(penguins)` columns, with the following variable names:
 `r names(penguins)`. The species included are `r unique(penguins$species)` from the islands `r unique(penguins$island)`, and the years range from `r min(penguins$year)` to `r max(penguins$year)`.
 
-The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
+The mean flipper length in mm is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
 
 ## Plot
 Here is a scatter plot of flipper_length_mm vs. bill_length_mm:
