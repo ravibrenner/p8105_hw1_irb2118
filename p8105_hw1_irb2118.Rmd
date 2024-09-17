@@ -2,8 +2,8 @@
 title: "p8105_hw1_irb2118"
 output: github_document
 date: "Due: 2024-09-21"
-author: Ravi Brenner
 ---
+Ravi Brenner
 
 # Introduction
 
