@@ -37,7 +37,7 @@ The mean flipper length in mm is `r mean(penguins$flipper_length_mm, na.rm = TRU
 Here is a scatter plot of flipper_length_mm vs. bill_length_mm:
 ```{r, message = FALSE, warning = FALSE}
 ggplot(penguins,
-       aes(x = flipper_length_mm, y = bill_length_mm, color = species)) +
+       aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
   geom_point()
 
 ggsave("species_scatter.png")
